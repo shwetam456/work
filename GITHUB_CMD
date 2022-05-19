@@ -1,0 +1,105 @@
+#Git Setup
+
+#create a Git repository from an existing directory
+git init [directory] 
+#clone / download a repository onto local machine
+git clone [repo / URL]
+#clone a repository from a remote location into a specified folder [folder] on your local machine
+git clone [URL] [folder]
+
+#Git Branches
+
+#list all branches in the repository
+git branch
+#list all remote branches
+git branch -a 
+#create a new branch under the specified name
+git branch [branch]
+#switch to another branch (either an existing one or by creating a new one under the specified name]
+git checkout [branch]
+#delete a local branch
+git branch -d [branch]
+#rename the branch you are currently working in
+git branch -m[new_branch_name]
+#merge the specified branch with the current branch
+git merge [branch]
+
+#Git Configuring
+
+#set an author name that will be attached to all commits by the current user
+git config --global user.name "[your_name]"
+#set an email address that will be attached to all commits by the current user
+git config --global user.email "[email_address]"
+#set Git's automatic command line coloring 
+git config --globalcolor.ui auto
+#create a shortcut (alias) for a Git command
+git config --global alias.[alias_name][git_command]
+#set a default text editor for all the users on the machine
+git config --systemcore.editor[text_editor]
+#open Git's global configuration file
+git config --global --edit
+
+#Undoing Changes
+
+#undo all changes in the specified file/directory by creating a new commit and applying it to the current branch
+git revert [file/directory] 
+#unstage the specified file without overwriting changes
+git reset [file]
+#undo all changes that happened after the specified commit
+git reset [commit]
+#see which files should be removed from the current directory
+git clean -n
+#remove the unnecessary files in the directory
+git clean -f
+
+#Making Changes
+
+#stage changes for the next commit
+git add [file/directory]
+#stage everything in the directory for an initial commit
+git add .
+#commit the previously staged snapshot in the version history with a descriptive message included in the command 
+git commit -m "[descriptive_message]"
+
+#Managing Files
+
+#show the state of the currentdirectory (along with staged,
+unstaged, and untracked files)
+git status
+#list the complete commit history of the current branch
+git log
+#list all commits from all branches
+git log --all
+#show which commits are on the first branch, but not on the second one
+git log [branch1]..[branch2]
+#see the difference between the working directory and the index(which changes have not been commited yet)
+git diff
+#see the difference between the last commit and the index
+get diff --cached
+#see the difference between the last commit and the working directory
+get diff HEAD
+#show the content and metadata of an object (blob, tree, tag, or commit)
+git show [object]
+
+#Remote Repositories
+
+#create a new connection to a remote repository and give it a name to serve as a shortcut to the URL
+git remote add [name][URL]
+#fetch a branch from a remote repository
+git fetch [remote_repo][branch]
+#fetch the specified repository and merge it with the local copy
+git pull [remote_repo]
+#push a branch to a remote repository with all its commits
+and objects
+git push [remote_repo][branch]
+
+#Rewriting History
+
+#replace the last commit with a combination of the staged
+changes and the last commit combined
+git commit --amend
+#rebase the current branch with
+the specified base (it can be a branch name, tag,reference to a HEAD, or a commit ID)
+git rebase [base]
+#list changes made to the HEAD of the local repository
+git reflog
